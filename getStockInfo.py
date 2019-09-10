@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 import datetime
 
 HEIGHT = 600
-WIDTH = 900
+WIDTH = 700
 
 #Uses requests to connect to alpha_vantage's stock market API to get the latest quote for a security 
 def getStock(entry):
@@ -31,9 +31,11 @@ canvas.pack()
 frame = tk.Frame(root, bg = "#001a33", bd = 10)
 frame.place(relx = 0.5, rely = 0.1, relwidth = 0.75, relheight = 0.1, anchor = "n") 
 
-#Entry allows for users to input their querry
+#Entry and label widget allows for users to input their querry
 entry = tk.Entry(frame, bg="white", font = 40)
-entry.place(relwidth = 0.75, relheight = 1)
+entry.place(relx = 0.55, relwidth = 0.2, relheight = 1)
+enter_ticker = tk.Label(frame, text= "Please enter a stock ticker ->" )
+enter_ticker.place(relx = 0.01, relwidth = 0.5, relheight = 1)
 
 #The search button
 button = tk.Button(frame, text = "Search", bg='red', fg="red", command = lambda: getStock(entry.get()))
